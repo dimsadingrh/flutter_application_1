@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'column_widget.dart';
+import 'ui/produk_form.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.lightBlue,
       ),
       title: "Aplikasi Flutter Pertama",
-      home: ColumnWidget(),
+      home: ProdukForm(),
     );
   }
 }
