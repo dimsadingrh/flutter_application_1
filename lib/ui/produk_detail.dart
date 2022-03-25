@@ -6,15 +6,15 @@ class ProdukDetail extends StatefulWidget {
   final int? harga;
 
   const ProdukDetail({Key? key, this.kodeProduk, this.namaProduk, this.harga})
-      : super(key: Key);
+      : super(key: key);
 
   @override
-  _ProdukDetailstate createState() => _ProdukDetailState();
+  _ProdukDetailState createState() => _ProdukDetailState();
 }
 
 class _ProdukDetailState extends State<ProdukDetail> {
   @override
-  Widget build(BuildContext) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail Produk'),

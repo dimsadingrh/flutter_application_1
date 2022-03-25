@@ -1,3 +1,4 @@
+import 'package:flutter_application_1/ui/produk_detail.dart';
 import 'package:flutter/material.dart';
 
 class ProdukForm extends StatefulWidget {
@@ -21,7 +22,7 @@ class _ProdukFormState extends State<ProdukForm> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            _textboxKodePorduk(),
+            _textboxKodeProduk(),
             _textboxNamaProduk(),
             _textboxHargaProduk(),
             _tombolSimpan()
@@ -32,21 +33,21 @@ class _ProdukFormState extends State<ProdukForm> {
   }
 
   _textboxKodeProduk() {
-    return Textfield(
+    return TextField(
       decoration: const InputDecoration(labelText: "Kode Produk"),
       controller: _kodeProdukTextboxController,
     );
   }
 
   _textboxNamaProduk() {
-    return Textfield(
+    return TextField(
       decoration: const InputDecoration(labelText: "Nama Produk"),
       controller: _namaProdukTextboxController,
     );
   }
 
   _textboxHargaProduk() {
-    return Textfield(
+    return TextField(
       decoration: const InputDecoration(labelText: "Harga"),
       controller: _hargaProdukTextboxController,
     );
@@ -58,8 +59,8 @@ class _ProdukFormState extends State<ProdukForm> {
           String kodeProduk = _kodeProdukTextboxController.text;
           String namaProduk = _namaProdukTextboxController.text;
           int harga = int.parse(
-              _hargaProdukTextboxController.text); //parsing dari string ke int
-          //pindah ke halaman Produk Detail dan mengirim data
+              _hargaProdukTextboxController.text); //parsing dari String ke int
+          // pindah ke halaman Produk Detail dan mengirim data
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => ProdukDetail(
                     kodeProduk: kodeProduk,
