@@ -8,6 +8,10 @@ class ProdukForm extends StatefulWidget {
 }
 
 class _ProdukFormState extends State<ProdukForm> {
+  final _kodeProdukTextboxController = TextEditingController();
+  final _namaProdukTextboxController = TextEditingController();
+  final _hargaProdukTextboxController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,15 +21,52 @@ class _ProdukFormState extends State<ProdukForm> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TextField(
-                decoration: const InputDecoration(labelText: "Kode Produk")),
-            TextField(
-                decoration: const InputDecoration(labelText: "Nama Produk")),
-            TextField(decoration: const InputDecoration(labelText: "Harga")),
-            ElevatedButton(onPressed: () {}, child: const Text('Simpan'))
+            _textboxKodePorduk(),
+            _textboxNamaProduk(),
+            _textboxHargaProduk(),
+            _tombolSimpan()
           ],
         ),
       ),
     );
+  }
+
+  _textboxKodeProduk() {
+    return Textfield(
+      decoration: const InputDecoration(labelText: "Kode Produk"),
+      controller: _kodeProdukTextboxController,
+    );
+  }
+
+  _textboxNamaProduk() {
+    return Textfield(
+      decoration: const InputDecoration(labelText: "Nama Produk"),
+      controller: _namaProdukTextboxController,
+    );
+  }
+
+  _textboxHargaProduk() {
+    return Textfield(
+      decoration: const InputDecoration(labelText: "Harga"),
+      controller: _hargaProdukTextboxController,
+    );
+  }
+
+  _tombolSimpan() {
+    return ElevatedButton(
+        onPressed: () {
+          String kodeProduk = _kodeProdukTextboxController.text;
+          String namaProduk = _namaProdukTextboxController.text;
+          int harga = int.parse(
+              _hargaProdukTextboxController.text); //parsing dari string ke int
+          //pindah ke halaman Produk Detail dan mengirim data
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => ProdukDetail(
+                    kodeProduk: kodeProduk,
+                    namaProduk: namaProduk,
+                    harga: harga,
+                  )));
+        },
+        child: const Text('Simpan'));
   }
 }
